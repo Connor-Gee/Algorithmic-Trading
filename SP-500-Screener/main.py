@@ -7,7 +7,7 @@ from secrets import IEX_CLOUD_API_TOKEN
 
 
 
-#Batch calls are limited to 100 tickers per call. S&P 500 split using:
+# Batch calls are limited to 100 tickers per call. S&P 500 split using:
 def chunks(lst, n):
     for i in range(0, len(lst), n):
         yield lst[i:i + n]
@@ -58,7 +58,7 @@ for i in range(0, len(final_dataframe.index)):
     final_dataframe.loc[i, 'Number of Shares to Buy'] = math.floor(position_size/final_dataframe.loc[i, 'Stock Price'])
     
 
-#Write to Excel file
+# Write to Excel file
 writer = pd.ExcelWriter('recommended trades.xlsx', engine='xlsxwriter')
 final_dataframe.to_excel(writer, 'Recommended Trades', index=False)
 background_color = '#0a0a23'
